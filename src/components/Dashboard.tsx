@@ -9,7 +9,7 @@ interface DashboardProps {
   onRefresh: () => void;
 }
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'https://backend-climatebuddy-production.up.railway.app/api';
 
 const Dashboard: React.FC<DashboardProps> = ({ userProfile, data, onRefresh }) => {
   const [currentWeather, setCurrentWeather] = useState<WeatherData | null>(null);

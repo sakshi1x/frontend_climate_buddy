@@ -8,7 +8,7 @@ import Navigation from './components/Navigation';
 import AuthWrapper from './components/AuthWrapper';
 import { UserProfile, ChatMessage, DashboardData, ActionItem, AuthUser } from './types';
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'https://backend-climatebuddy-production.up.railway.app/api';
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);

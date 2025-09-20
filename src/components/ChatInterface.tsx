@@ -9,7 +9,7 @@ interface ChatInterfaceProps {
   onUpdateProfile: (updates: Partial<UserProfile>) => void;
 }
 
-const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:8000/api';
+const API_BASE_URL = process.env.REACT_APP_BACKEND_URL || 'https://backend-climatebuddy-production.up.railway.app/api';
 
 const ChatInterface: React.FC<ChatInterfaceProps> = ({
   userProfile,
