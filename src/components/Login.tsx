@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { LoginCredentials } from '../types';
+import authService from '../services/authService';
 import './Auth.css';
 
 interface LoginProps {
@@ -26,6 +27,7 @@ const Login: React.FC<LoginProps> = ({
   });
 
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({});
+  const [showDemoCredentials, setShowDemoCredentials] = useState(false);
 
   const validateForm = (): boolean => {
     const errors: Record<string, string> = {};
@@ -68,6 +70,17 @@ const Login: React.FC<LoginProps> = ({
       }));
     }
   };
+
+  const handleDemoLogin = (demoCredentials: { email: string; password: string }) => {
+    setFormData(prev => ({
+      ...prev,
+      email: demoCredentials.email,
+      password: demoCredentials.password
+    }));
+    setShowDemoCredentials(false);
+  };
+
+  const demoCredentials = authService.getDemoCredentials();
 
   return (
     <div className="auth-container">
@@ -197,6 +210,39 @@ const Login: React.FC<LoginProps> = ({
               Sign up for free
             </button>
           </p>
+          
+          <div className="demo-credentials">
+            <button
+              type="button"
+              onClick={() => setShowDemoCredentials(!showDemoCredentials)}
+              className="demo-toggle"
+              disabled={isLoading}
+            >
+              {showDemoCredentials ? 'Hide' : 'Show'} Demo Accounts
+            </button>
+            
+            {showDemoCredentials && (
+              <div className="demo-accounts">
+                <p className="demo-title">Try these demo accounts:</p>
+                {demoCredentials.map((demo, index) => (
+                  <div key={index} className="demo-account">
+                    <div className="demo-info">
+                      <strong>{demo.name}</strong>
+                      <span className="demo-email">{demo.email}</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleDemoLogin(demo)}
+                      className="demo-login-btn"
+                      disabled={isLoading}
+                    >
+                      Use This Account
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

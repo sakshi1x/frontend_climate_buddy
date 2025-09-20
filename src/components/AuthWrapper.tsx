@@ -3,6 +3,7 @@ import Login from './Login';
 import Signup from './Signup';
 import LandingPage from './LandingPage';
 import { LoginCredentials, SignupData, AuthUser } from '../types';
+import authService from '../services/authService';
 
 interface AuthWrapperProps {
   onAuthSuccess: (user: AuthUser) => void;
@@ -20,26 +21,19 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ onAuthSuccess }) => {
     setError('');
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      const response = await authService.login(credentials);
 
-      // Mock successful login
-      const mockUser: AuthUser = {
-        id: '1',
-        email: credentials.email,
-        name: 'Climate Learner',
-        subscription: 'free',
-        createdAt: new Date().toISOString(),
-        lastLogin: new Date().toISOString()
-      };
+      if (response.success && response.user && response.token) {
+        // Save to localStorage
+        localStorage.setItem('climatebuddy-user', JSON.stringify(response.user));
+        localStorage.setItem('climatebuddy-auth-token', response.token);
 
-      // Save to localStorage
-      localStorage.setItem('climatebuddy-user', JSON.stringify(mockUser));
-      localStorage.setItem('climatebuddy-auth-token', 'mock-jwt-token');
-
-      onAuthSuccess(mockUser);
+        onAuthSuccess(response.user);
+      } else {
+        setError(response.error || 'Login failed. Please try again.');
+      }
     } catch (err) {
-      setError('Invalid email or password. Please try again.');
+      setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -50,34 +44,41 @@ const AuthWrapper: React.FC<AuthWrapperProps> = ({ onAuthSuccess }) => {
     setError('');
 
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      const response = await authService.signup(data);
 
-      // Mock successful signup
-      const mockUser: AuthUser = {
-        id: Date.now().toString(),
-        email: data.email,
-        name: data.name,
-        subscription: 'free',
-        createdAt: new Date().toISOString(),
-        lastLogin: new Date().toISOString()
-      };
+      if (response.success && response.user && response.token) {
+        // Save to localStorage
+        localStorage.setItem('climatebuddy-user', JSON.stringify(response.user));
+        localStorage.setItem('climatebuddy-auth-token', response.token);
 
-      // Save to localStorage
-      localStorage.setItem('climatebuddy-user', JSON.stringify(mockUser));
-      localStorage.setItem('climatebuddy-auth-token', 'mock-jwt-token');
-
-      onAuthSuccess(mockUser);
+        onAuthSuccess(response.user);
+      } else {
+        setError(response.error || 'Signup failed. Please try again.');
+      }
     } catch (err) {
-      setError('Failed to create account. Please try again.');
+      setError('An unexpected error occurred. Please try again.');
     } finally {
       setIsLoading(false);
     }
   };
 
-  const handleForgotPassword = () => {
-    // For now, just show an alert
-    alert('Password reset functionality would be implemented here. In a real app, this would send a reset email.');
+  const handleForgotPassword = async () => {
+    const email = prompt('Please enter your email address:');
+    if (email) {
+      setIsLoading(true);
+      try {
+        const response = await authService.forgotPassword(email);
+        if (response.success) {
+          alert(response.message || 'Password reset link sent to your email.');
+        } else {
+          alert(response.error || 'Failed to send reset link.');
+        }
+      } catch (err) {
+        alert('An unexpected error occurred. Please try again.');
+      } finally {
+        setIsLoading(false);
+      }
+    }
   };
 
   const switchToLogin = () => {

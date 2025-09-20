@@ -1,0 +1,158 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Sarah Johnson",
+      "email": "sarah.johnson@email.com",
+      "password": "Climate2024!",
+      "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      "subscription": "premium",
+      "createdAt": "2024-01-15T10:30:00Z",
+      "lastLogin": "2024-12-20T14:22:00Z",
+      "profile": {
+        "ageGroup": "adult",
+        "knowledgeLevel": "intermediate",
+        "language": "en",
+        "location": "San Francisco, CA",
+        "points": 2450,
+        "level": 8,
+        "achievements": ["eco-warrior", "energy-saver", "water-conserver"]
+      }
+    },
+    {
+      "id": "2",
+      "name": "Mike Chen",
+      "email": "mike.chen@email.com",
+      "password": "GreenLife2024",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      "subscription": "free",
+      "createdAt": "2024-02-20T16:45:00Z",
+      "lastLogin": "2024-12-19T09:15:00Z",
+      "profile": {
+        "ageGroup": "adult",
+        "knowledgeLevel": "beginner",
+        "language": "en",
+        "location": "New York, NY",
+        "points": 890,
+        "level": 3,
+        "achievements": ["first-steps"]
+      }
+    },
+    {
+      "id": "3",
+      "name": "Emma Rodriguez",
+      "email": "emma.rodriguez@email.com",
+      "password": "Sustainable2024",
+      "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      "subscription": "enterprise",
+      "createdAt": "2024-03-10T12:20:00Z",
+      "lastLogin": "2024-12-20T11:30:00Z",
+      "profile": {
+        "ageGroup": "adult",
+        "knowledgeLevel": "advanced",
+        "language": "en",
+        "location": "Austin, TX",
+        "points": 5670,
+        "level": 15,
+        "achievements": ["eco-warrior", "energy-saver", "water-conserver", "waste-reducer", "climate-educator"]
+      }
+    },
+    {
+      "id": "4",
+      "name": "Alex Thompson",
+      "email": "alex.thompson@email.com",
+      "password": "EcoFriendly2024",
+      "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      "subscription": "premium",
+      "createdAt": "2024-04-05T14:10:00Z",
+      "lastLogin": "2024-12-18T16:45:00Z",
+      "profile": {
+        "ageGroup": "teen",
+        "knowledgeLevel": "intermediate",
+        "language": "en",
+        "location": "Seattle, WA",
+        "points": 1890,
+        "level": 6,
+        "achievements": ["energy-saver", "water-conserver"]
+      }
+    },
+    {
+      "id": "5",
+      "name": "Lisa Wang",
+      "email": "lisa.wang@email.com",
+      "password": "ClimateAction2024",
+      "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+      "subscription": "free",
+      "createdAt": "2024-05-12T09:30:00Z",
+      "lastLogin": "2024-12-17T13:20:00Z",
+      "profile": {
+        "ageGroup": "adult",
+        "knowledgeLevel": "beginner",
+        "language": "en",
+        "location": "Portland, OR",
+        "points": 450,
+        "level": 2,
+        "achievements": ["first-steps"]
+      }
+    },
+    {
+      "id": "6",
+      "name": "David Kim",
+      "email": "david.kim@email.com",
+      "password": "GreenFuture2024",
+      "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      "subscription": "premium",
+      "createdAt": "2024-06-18T11:15:00Z",
+      "lastLogin": "2024-12-20T08:30:00Z",
+      "profile": {
+        "ageGroup": "adult",
+        "knowledgeLevel": "advanced",
+        "language": "en",
+        "location": "Denver, CO",
+        "points": 4230,
+        "level": 12,
+        "achievements": ["eco-warrior", "energy-saver", "water-conserver", "waste-reducer"]
+      }
+    },
+    {
+      "id": "7",
+      "name": "Maria Garcia",
+      "email": "maria.garcia@email.com",
+      "password": "SustainableLife2024",
+      "avatar": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=150&h=150&fit=crop&crop=face",
+      "subscription": "free",
+      "createdAt": "2024-07-22T15:45:00Z",
+      "lastLogin": "2024-12-16T10:15:00Z",
+      "profile": {
+        "ageGroup": "adult",
+        "knowledgeLevel": "intermediate",
+        "language": "en",
+        "location": "Miami, FL",
+        "points": 1560,
+        "level": 5,
+        "achievements": ["energy-saver", "water-conserver"]
+      }
+    },
+    {
+      "id": "8",
+      "name": "James Wilson",
+      "email": "james.wilson@email.com",
+      "password": "EcoWarrior2024",
+      "avatar": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&h=150&fit=crop&crop=face",
+      "subscription": "enterprise",
+      "createdAt": "2024-08-30T13:20:00Z",
+      "lastLogin": "2024-12-19T17:45:00Z",
+      "profile": {
+        "ageGroup": "adult",
+        "knowledgeLevel": "advanced",
+        "language": "en",
+        "location": "Boston, MA",
+        "points": 6780,
+        "level": 18,
+        "achievements": ["eco-warrior", "energy-saver", "water-conserver", "waste-reducer", "climate-educator", "community-leader"]
+      }
+    }
+  ],
+  "sessions": [],
+  "passwordResetTokens": []
+}
